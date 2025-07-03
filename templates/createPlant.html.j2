@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<title>Create Plant</title>
+    	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  	</head>
+  	<body>
+    	<div class="container">
+			<div class="row">
+				<h1>Create Plant</h1>
+			</div>
+
+            <div class="row">
+                {% if errors is defined %}
+                <div class="alert alert-danger" role="alert">
+                    {% for error in errors %}
+                        {{ error }}<br>
+                    {% endfor %}
+                 </div>
+                {% endif %}
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <form action="/create" method="POST">
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Common</label>
+                            <input name="common" value="{{ common }}" type="text" class="form-control" aria-label="Name of plant">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Botanical</label>
+                            <input name="botanical" value="{{ botanical }}" type="text" class="form-control" aria-label="Botanical">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Zone</label>
+                            <input name="zone" value="{{ zone }}" type="text" class="form-control" aria-label="Zone of plant">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Light</label>
+                            <input name="light" value="{{ light }}" type="text" class="form-control" aria-label="Amount of light">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Price</label>
+                            <input name="price" value="{{ price }}" type="text" class="form-control" aria-label="Price of plant">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Availability</label>
+                            <input name="availability" value="{{ availability }}" type="date" class="form-control" aria-label="Available date">
+                        </div>
+                        <button type="submit" class="btn btn-success">Create</button> <a href="/"><button type="button" class="btn btn-danger">Cancel</button></a>
+                    </form>
+                </div>
+            </div>
+
+			</div>
+		</div>
+    	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  	</body>
+</html>
